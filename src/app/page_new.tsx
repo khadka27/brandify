@@ -15,8 +15,6 @@ export default function Home() {
   const [price, setPrice] = useState("Turn Any TV Smart for Just $39!");
   const [productImage, setProductImage] = useState<string | null>(null);
   const [backgroundColor, setBackgroundColor] = useState("#7ba5b8");
-  const [headerTextColor, setHeaderTextColor] = useState("#000000");
-  const [bulletTextColor, setBulletTextColor] = useState("#ffffff");
   const [isDragOver, setIsDragOver] = useState(false);
   const [bulletPoints, setBulletPoints] = useState<BulletPoint[]>([
     { id: 1, text: "Plug & Play HDMI Setup" },
@@ -339,132 +337,6 @@ export default function Home() {
                 />
               </div>
 
-              {/* Header Text Color */}
-              <div>
-                <label className="flex items-center text-sm font-medium text-gray-700 mb-3">
-                  <svg
-                    className="w-4 h-4 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
-                  </svg>
-                  Header Text Color
-                </label>
-
-                <div className="flex items-center space-x-3 mb-4">
-                  <div
-                    className="w-12 h-12 rounded-lg border-2 border-gray-300 shadow-sm"
-                    style={{ backgroundColor: headerTextColor }}
-                  />
-                  <input
-                    type="text"
-                    value={headerTextColor}
-                    onChange={(e) => setHeaderTextColor(e.target.value)}
-                    className="flex-1 px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
-                    placeholder="#000000"
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <p className="text-sm font-medium text-gray-600 mb-3">
-                    Quick Colors
-                  </p>
-                  <div className="grid grid-cols-5 gap-2">
-                    {[
-                      "#000000",
-                      "#ffffff",
-                      "#374151",
-                      "#6b7280",
-                      "#9ca3af",
-                      "#ef4444",
-                      "#f97316",
-                      "#eab308",
-                      "#22c55e",
-                      "#06b6d4",
-                      "#3b82f6",
-                      "#8b5cf6",
-                      "#ec4899",
-                      "#f43f5e",
-                      "#84cc16",
-                    ].map((color, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setHeaderTextColor(color)}
-                        className="w-8 h-8 rounded-lg border-2 border-gray-200 hover:border-gray-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        style={{ backgroundColor: color }}
-                        title={color}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Bullet Text Color */}
-              <div>
-                <label className="flex items-center text-sm font-medium text-gray-700 mb-3">
-                  <svg
-                    className="w-4 h-4 mr-2"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  Bullet Points Color
-                </label>
-
-                <div className="flex items-center space-x-3 mb-4">
-                  <div
-                    className="w-12 h-12 rounded-lg border-2 border-gray-300 shadow-sm"
-                    style={{ backgroundColor: bulletTextColor }}
-                  />
-                  <input
-                    type="text"
-                    value={bulletTextColor}
-                    onChange={(e) => setBulletTextColor(e.target.value)}
-                    className="flex-1 px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm"
-                    placeholder="#ffffff"
-                  />
-                </div>
-
-                <div className="mb-3">
-                  <p className="text-sm font-medium text-gray-600 mb-3">
-                    Quick Colors
-                  </p>
-                  <div className="grid grid-cols-5 gap-2">
-                    {[
-                      "#ffffff",
-                      "#000000",
-                      "#374151",
-                      "#6b7280",
-                      "#9ca3af",
-                      "#ef4444",
-                      "#f97316",
-                      "#eab308",
-                      "#22c55e",
-                      "#06b6d4",
-                      "#3b82f6",
-                      "#8b5cf6",
-                      "#ec4899",
-                      "#f43f5e",
-                      "#84cc16",
-                    ].map((color, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setBulletTextColor(color)}
-                        className="w-8 h-8 rounded-lg border-2 border-gray-200 hover:border-gray-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                        style={{ backgroundColor: color }}
-                        title={color}
-                      />
-                    ))}
-                  </div>
-                </div>
-              </div>
-
               {/* Download Button */}
               <div className="pt-4">
                 <button
@@ -487,44 +359,41 @@ export default function Home() {
           <div className="flex justify-center overflow-auto">
             <div
               ref={cardRef}
-              className="w-[1200px] h-[628px] rounded-none shadow-2xl overflow-hidden relative bg-white flex-shrink-0"
+              className="w-[1200px] h-[628px] rounded-2xl shadow-2xl overflow-hidden relative bg-white flex-shrink-0"
             >
               {/* Diagonal Background */}
               <div
                 className="absolute inset-0"
                 style={{
-                  background: `linear-gradient(135deg, ${backgroundColor} 0%, ${backgroundColor} 50%, #ffffff 50%, #ffffff 100%)`,
+                  background: `linear-gradient(135deg, ${backgroundColor} 0%, ${backgroundColor} 45%, #ffffff 45%, #ffffff 100%)`,
                 }}
               />
 
-              <div className="relative h-full p-16 flex">
-                {/* Left Side - Marketing Message and Product Image */}
-                <div className="w-1/2 flex flex-col justify-between pr-4">
+              <div className="relative h-full p-12 flex">
+                {/* Left Side - Product Image and Price */}
+                <div className="w-1/2 flex flex-col justify-between">
                   {/* Marketing Message */}
-                  <div className="mb-8">
-                    <h3
-                      className="text-3xl font-bold leading-tight"
-                      style={{ color: headerTextColor }}
-                    >
+                  <div className="text-gray-800 mb-8">
+                    <h3 className="text-2xl font-bold leading-tight">
                       {price}
                     </h3>
                   </div>
 
-                  {/* Product Image - 400x400 and shifted left */}
-                  <div className="flex justify-start items-center flex-1 -ml-8">
+                  {/* Product Image */}
+                  <div className="flex justify-center mb-8">
                     {productImage ? (
-                      <div className="w-[400px] h-[400px] flex items-center justify-center">
+                      <div className="w-48 h-48 flex items-center justify-center">
                         <Image
                           src={productImage}
                           alt="Product"
-                          width={400}
-                          height={400}
-                          className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                          width={192}
+                          height={192}
+                          className="max-w-full max-h-full object-contain"
                         />
                       </div>
                     ) : (
-                      <div className="w-[400px] h-[400px] bg-gray-200/50 rounded-lg flex items-center justify-center">
-                        <span className="text-gray-500 text-lg text-center">
+                      <div className="w-48 h-48 bg-gray-200 rounded-lg flex items-center justify-center">
+                        <span className="text-gray-500 text-sm text-center">
                           Upload Product Image
                         </span>
                       </div>
@@ -533,30 +402,22 @@ export default function Home() {
                 </div>
 
                 {/* Right Side - Title and Features */}
-                <div className="w-1/2 flex flex-col pl-4">
+                <div className="w-1/2 flex flex-col pl-8">
                   {/* Header */}
-                  <div className="text-center mb-12">
-                    <h1
-                      className="text-5xl font-bold mb-4"
-                      style={{ color: headerTextColor }}
-                    >
+                  <div className="text-center mb-8">
+                    <h1 className="text-4xl font-bold text-gray-800 mb-2">
                       {title}
                     </h1>
-                    <p
-                      className="text-3xl italic"
-                      style={{ color: headerTextColor }}
-                    >
-                      {subtitle}
-                    </p>
+                    <p className="text-2xl text-gray-600 italic">{subtitle}</p>
                   </div>
 
                   {/* Features */}
-                  <div className="space-y-6 flex-1">
+                  <div className="space-y-4 flex-1">
                     {bulletPoints.map((point) => (
                       <div key={point.id} className="flex items-center">
-                        <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-6 shadow-lg border-2 border-gray-200 flex-shrink-0">
+                        <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center mr-4 shadow-sm border border-gray-200 flex-shrink-0">
                           <svg
-                            className="w-6 h-6 text-green-500"
+                            className="w-5 h-5 text-green-500"
                             fill="currentColor"
                             viewBox="0 0 20 20"
                           >
@@ -567,14 +428,8 @@ export default function Home() {
                             />
                           </svg>
                         </div>
-                        <div
-                          className="backdrop-blur-sm px-8 py-4 rounded-full shadow-lg border border-white/20 flex-1"
-                          style={{ backgroundColor: `${backgroundColor}E6` }}
-                        >
-                          <span
-                            className="text-xl font-medium"
-                            style={{ color: bulletTextColor }}
-                          >
+                        <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-sm border border-gray-200 flex-1">
+                          <span className="text-lg text-gray-700 font-medium">
                             {point.text}
                           </span>
                         </div>
