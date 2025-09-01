@@ -607,7 +607,7 @@ export default function Home() {
       const clipboardItems = await navigator.clipboard.read();
       for (const clipboardItem of clipboardItems) {
         for (const type of clipboardItem.types) {
-          if (type.startsWith('image/')) {
+          if (type.startsWith("image/")) {
             const blob = await clipboardItem.getType(type);
             const reader = new FileReader();
             reader.onload = (e) => {
@@ -620,11 +620,11 @@ export default function Home() {
       }
       // If no image found, try to get text (URL)
       const text = await navigator.clipboard.readText();
-      if (text && (text.startsWith('http') || text.startsWith('data:image'))) {
+      if (text && (text.startsWith("http") || text.startsWith("data:image"))) {
         setProductImage(text);
       }
     } catch (err) {
-      console.log('Failed to read clipboard contents: ', err);
+      console.log("Failed to read clipboard contents: ", err);
     }
   };
 
@@ -800,7 +800,8 @@ export default function Home() {
                             Upload Product Image
                           </h3>
                           <p className="text-sm text-gray-600 mb-4">
-                            Drag and drop, browse files, paste from clipboard, or use URL
+                            Drag and drop, browse files, paste from clipboard,
+                            or use URL
                           </p>
 
                           {/* Upload Options */}
