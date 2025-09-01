@@ -849,31 +849,13 @@ export default function Home() {
   };
 
   const renderLayoutContent = () => {
-    const commonImageElement = productImage ? (
-      <div className="w-[400px] h-[400px] flex items-center justify-center">
-        <Image
-          src={productImage}
-          alt="Product"
-          width={400}
-          height={400}
-          className="max-w-full max-h-full object-contain drop-shadow-2xl"
-        />
-      </div>
-    ) : (
-      <div className="w-[400px] h-[400px] bg-gray-200/50 rounded-lg flex items-center justify-center">
-        <span className="text-gray-500 text-lg text-center">
-          Upload Product Image
-        </span>
-      </div>
-    );
-
     switch (currentLayout) {
       case "split":
         return (
           <div className="h-full flex">
             {/* Left half - Product image */}
             <div className="w-1/2 flex items-center justify-center p-8">
-              <div className="w-[500px] h-[500px]">
+              <div className="w-[500px] h-[500px] flex items-center justify-center">
                 {productImage ? (
                   <Image
                     src={productImage}
@@ -881,6 +863,13 @@ export default function Home() {
                     width={500}
                     height={500}
                     className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                    style={{
+                      objectPosition: "center center",
+                      width: "auto",
+                      height: "auto",
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                    }}
                   />
                 ) : (
                   <div className="w-full h-full bg-gray-200/50 rounded-lg flex items-center justify-center">
@@ -975,23 +964,20 @@ export default function Home() {
             <div className="relative h-full p-16 flex">
               <div className="w-1/2 flex flex-col justify-center">
                 <h1
-                  className="text-3xl lg:text-5xl font-extrabold mb-4 leading-tight tracking-tight"
+                  className="text-4xl lg:text-5xl font-bold mb-4 leading-tight"
                   style={{
                     color: headerTextColor,
-                    textShadow: `0 4px 12px rgba(0,0,0,0.9), 0 2px 6px ${backgroundColor}40`,
-                    filter:
-                      "contrast(1.3) brightness(1.15) drop-shadow(0 2px 4px rgba(0,0,0,0.5))",
+                    textShadow: "0 2px 4px rgba(0,0,0,0.5)",
                   }}
                 >
                   {title}
                 </h1>
                 <h2
-                  className="text-xl lg:text-2xl font-semibold mb-6 leading-relaxed"
+                  className="text-xl lg:text-2xl font-medium mb-6 leading-relaxed"
                   style={{
                     color: headerTextColor,
-                    textShadow: `0 3px 8px rgba(0,0,0,0.8), 0 1px 4px ${backgroundColor}30`,
-                    opacity: 0.95,
-                    filter: "contrast(1.2) brightness(1.1)",
+                    opacity: 0.9,
+                    textShadow: "0 1px 3px rgba(0,0,0,0.4)",
                   }}
                 >
                   {subtitle}
@@ -1000,9 +986,7 @@ export default function Home() {
                   className="text-2xl lg:text-3xl font-bold mb-8 leading-tight"
                   style={{
                     color: headerTextColor,
-                    textShadow: `0 4px 10px rgba(0,0,0,0.9), 0 2px 5px ${backgroundColor}35`,
-                    filter:
-                      "contrast(1.25) brightness(1.12) drop-shadow(0 1px 3px rgba(0,0,0,0.4))",
+                    textShadow: "0 2px 4px rgba(0,0,0,0.5)",
                   }}
                 >
                   {price}
@@ -1011,21 +995,18 @@ export default function Home() {
                   {bulletPoints.slice(0, 4).map((point) => (
                     <div key={point.id} className="w-full">
                       <div
-                        className="flex items-center space-x-3 rounded-full px-5 py-3 shadow-xl border backdrop-blur-md transition-all duration-200 hover:shadow-2xl hover:scale-102"
+                        className="flex items-center space-x-3 rounded-full px-5 py-3 shadow-lg border backdrop-blur-sm"
                         style={{
-                          background: `linear-gradient(135deg, ${backgroundColor}30, ${backgroundColor}20)`,
-                          borderColor: `${headerTextColor}50`,
+                          backgroundColor: `${backgroundColor}30`,
+                          borderColor: `${headerTextColor}40`,
                           minHeight: "56px",
-                          boxShadow: `0 8px 20px rgba(0,0,0,0.4), 0 4px 12px ${backgroundColor}25, inset 0 1px 0 ${headerTextColor}20`,
                         }}
                       >
                         <div
-                          className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0 transition-all duration-200 hover:scale-110"
+                          className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0"
                           style={{
                             backgroundColor: bulletTextColor,
                             color: backgroundColor,
-                            boxShadow: `0 4px 8px ${bulletTextColor}50, 0 2px 4px rgba(0,0,0,0.3)`,
-                            filter: "contrast(1.1) brightness(1.05)",
                           }}
                         >
                           ✓
@@ -1034,8 +1015,7 @@ export default function Home() {
                           className="text-lg font-medium flex-1"
                           style={{
                             color: bulletTextColor,
-                            textShadow: `0 2px 6px rgba(0,0,0,0.7), 0 1px 3px ${backgroundColor}20`,
-                            filter: "contrast(1.15) brightness(1.08)",
+                            textShadow: "0 1px 2px rgba(0,0,0,0.4)",
                           }}
                         >
                           {point.text}
@@ -1047,14 +1027,33 @@ export default function Home() {
               </div>
               <div className="w-1/2 flex items-center justify-center">
                 <div
-                  className="w-[400px] h-[400px] rounded-lg backdrop-blur-lg transition-all duration-300 hover:scale-105 hover:rotate-1"
+                  className="w-[400px] h-[400px] rounded-lg backdrop-blur-sm flex items-center justify-center"
                   style={{
-                    background: `linear-gradient(135deg, ${backgroundColor}25, ${backgroundColor}15)`,
-                    border: `3px solid ${headerTextColor}40`,
-                    boxShadow: `0 16px 32px rgba(0,0,0,0.5), 0 8px 16px ${backgroundColor}20, inset 0 2px 4px ${headerTextColor}15`,
+                    backgroundColor: `${backgroundColor}20`,
+                    border: `2px solid ${headerTextColor}30`,
+                    boxShadow: "0 8px 16px rgba(0,0,0,0.3)",
                   }}
                 >
-                  {commonImageElement}
+                  {productImage ? (
+                    <Image
+                      src={productImage}
+                      alt="Product"
+                      width={380}
+                      height={380}
+                      className="object-contain drop-shadow-xl"
+                      style={{
+                        objectPosition: "center center",
+                        width: "auto",
+                        height: "auto",
+                        maxWidth: "90%",
+                        maxHeight: "90%",
+                      }}
+                    />
+                  ) : (
+                    <span className="text-gray-500 text-lg text-center">
+                      Upload Product Image
+                    </span>
+                  )}
                 </div>
               </div>
             </div>
@@ -1064,8 +1063,31 @@ export default function Home() {
       case "minimal":
         return (
           <div className="h-full p-16 flex items-center">
-            <div className="w-1/3 flex justify-center">
-              <div className="w-[300px] h-[300px]">{commonImageElement}</div>
+            <div className="w-1/3 flex justify-center items-center">
+              <div className="w-[300px] h-[300px] flex items-center justify-center">
+                {productImage ? (
+                  <Image
+                    src={productImage}
+                    alt="Product"
+                    width={300}
+                    height={300}
+                    className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                    style={{
+                      objectPosition: "center center",
+                      width: "auto",
+                      height: "auto",
+                      maxWidth: "100%",
+                      maxHeight: "100%",
+                    }}
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gray-200/50 rounded-lg flex items-center justify-center">
+                    <span className="text-gray-500 text-lg text-center">
+                      Upload Product Image
+                    </span>
+                  </div>
+                )}
+              </div>
             </div>
             <div className="w-2/3 pl-16">
               <h1
@@ -1155,7 +1177,30 @@ export default function Home() {
                 </h3>
               </div>
               <div className="flex justify-start items-center flex-1 -ml-8">
-                {commonImageElement}
+                <div className="w-[400px] h-[400px] flex items-center justify-center">
+                  {productImage ? (
+                    <Image
+                      src={productImage}
+                      alt="Product"
+                      width={400}
+                      height={400}
+                      className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                      style={{
+                        objectPosition: "center center",
+                        width: "auto",
+                        height: "auto",
+                        maxWidth: "100%",
+                        maxHeight: "100%",
+                      }}
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gray-200/50 rounded-lg flex items-center justify-center">
+                      <span className="text-gray-500 text-lg text-center">
+                        Upload Product Image
+                      </span>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
             {/* Right Side - Title and Features */}
