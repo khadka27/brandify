@@ -203,19 +203,19 @@ export default function Home() {
               <div className="grid grid-cols-1 gap-3 max-w-2xl">
                 {bulletPoints.slice(0, 4).map((point) => (
                   <div key={point.id} className="w-full">
-                    <div 
+                    <div
                       className="flex items-center space-x-3 rounded-full px-5 py-3 shadow-lg border backdrop-blur-sm"
                       style={{
                         backgroundColor: `${backgroundColor}20`,
                         borderColor: `${backgroundColor}40`,
-                        minHeight: '56px'
+                        minHeight: "56px",
                       }}
                     >
-                      <div 
+                      <div
                         className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0"
                         style={{
                           backgroundColor: bulletTextColor,
-                          color: backgroundColor
+                          color: backgroundColor,
                         }}
                       >
                         ✓
@@ -280,19 +280,19 @@ export default function Home() {
               <div className="space-y-3">
                 {bulletPoints.slice(0, 5).map((point) => (
                   <div key={point.id} className="w-full">
-                    <div 
+                    <div
                       className="flex items-center space-x-3 rounded-full px-5 py-3 shadow-lg border backdrop-blur-sm"
                       style={{
                         backgroundColor: `${backgroundColor}20`,
                         borderColor: `${backgroundColor}40`,
-                        minHeight: '56px'
+                        minHeight: "56px",
                       }}
                     >
-                      <div 
+                      <div
                         className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0"
                         style={{
                           backgroundColor: bulletTextColor,
-                          color: backgroundColor
+                          color: backgroundColor,
                         }}
                       >
                         ✓
@@ -336,19 +336,19 @@ export default function Home() {
             <div className="grid grid-cols-1 gap-3 max-w-lg">
               {bulletPoints.slice(0, 5).map((point) => (
                 <div key={point.id} className="w-full">
-                  <div 
+                  <div
                     className="flex items-center space-x-3 rounded-full px-5 py-3 shadow-lg border backdrop-blur-sm"
                     style={{
                       backgroundColor: `${backgroundColor}20`,
                       borderColor: `${backgroundColor}40`,
-                      minHeight: '56px'
+                      minHeight: "56px",
                     }}
                   >
-                    <div 
+                    <div
                       className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0"
                       style={{
                         backgroundColor: bulletTextColor,
-                        color: backgroundColor
+                        color: backgroundColor,
                       }}
                     >
                       ✓
@@ -397,17 +397,15 @@ export default function Home() {
                 <div className="space-y-3">
                   {bulletPoints.slice(0, 4).map((point) => (
                     <div key={point.id} className="w-full">
-                      <div 
+                      <div
                         className="flex items-center space-x-3 rounded-full px-5 py-3 shadow-lg border backdrop-blur-sm"
                         style={{
-                          backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                          borderColor: 'rgba(255, 255, 255, 0.3)',
-                          minHeight: '56px'
+                          backgroundColor: "rgba(255, 255, 255, 0.15)",
+                          borderColor: "rgba(255, 255, 255, 0.3)",
+                          minHeight: "56px",
                         }}
                       >
-                        <div 
-                          className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0 bg-white text-black"
-                        >
+                        <div className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0 bg-white text-black">
                           ✓
                         </div>
                         <span className="text-lg font-medium flex-1 text-white drop-shadow-lg">
@@ -455,19 +453,19 @@ export default function Home() {
               <div className="space-y-3">
                 {bulletPoints.slice(0, 5).map((point) => (
                   <div key={point.id} className="w-full">
-                    <div 
+                    <div
                       className="flex items-center space-x-3 rounded-full px-5 py-3 shadow-lg border backdrop-blur-sm"
                       style={{
                         backgroundColor: `${backgroundColor}20`,
                         borderColor: `${backgroundColor}40`,
-                        minHeight: '56px'
+                        minHeight: "56px",
                       }}
                     >
-                      <div 
+                      <div
                         className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0"
                         style={{
                           backgroundColor: bulletTextColor,
-                          color: backgroundColor
+                          color: backgroundColor,
                         }}
                       >
                         ✓
@@ -522,19 +520,19 @@ export default function Home() {
               <div className="space-y-3 flex-1">
                 {bulletPoints.map((point) => (
                   <div key={point.id} className="w-full">
-                    <div 
+                    <div
                       className="flex items-center space-x-3 rounded-full px-5 py-3 shadow-lg border backdrop-blur-sm"
                       style={{
                         backgroundColor: `${backgroundColor}20`,
                         borderColor: `${backgroundColor}40`,
-                        minHeight: '56px'
+                        minHeight: "56px",
                       }}
                     >
-                      <div 
+                      <div
                         className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0"
                         style={{
                           backgroundColor: bulletTextColor,
-                          color: backgroundColor
+                          color: backgroundColor,
                         }}
                       >
                         ✓
@@ -819,13 +817,15 @@ export default function Home() {
                       <div className="flex items-center space-x-3 mb-3">
                         <span className="text-2xl">{template.preview}</span>
                         <div className="flex-1">
-                          <span className={`text-sm font-medium ${
-                            currentLayout === template.layout
-                              ? "text-blue-700"
-                              : template.id === "classic"
-                              ? "text-green-700"
-                              : "text-gray-700 group-hover:text-blue-600"
-                          }`}>
+                          <span
+                            className={`text-sm font-medium ${
+                              currentLayout === template.layout
+                                ? "text-blue-700"
+                                : template.id === "classic"
+                                ? "text-green-700"
+                                : "text-gray-700 group-hover:text-blue-600"
+                            }`}
+                          >
                             {template.name}
                           </span>
                           {template.id === "classic" && (
