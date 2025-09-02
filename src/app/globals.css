@@ -48,39 +48,6 @@ input[type="color"]::-webkit-color-swatch {
   border-radius: 0.5rem;
 }
 
-/* Color Picker Range Slider Styles */
-.hue-slider::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid #ddd;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.hue-slider::-moz-range-thumb {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid #ddd;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  -moz-appearance: none;
-}
-
-.hue-slider::-ms-thumb {
-  width: 16px;
-  height: 16px;
-  border-radius: 50%;
-  background: #fff;
-  border: 2px solid #ddd;
-  cursor: pointer;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
 /* Custom Range Slider Styles */
 .slider::-webkit-slider-thumb {
   appearance: none;

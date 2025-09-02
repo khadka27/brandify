@@ -694,6 +694,8 @@ export default function Home() {
   const [productImage, setProductImage] = useState<string | null>(null);
   const [backgroundColor, setBackgroundColor] = useState("#7ba5b8");
   const [headerTextColor, setHeaderTextColor] = useState("#000000");
+  const [heading1Color, setHeading1Color] = useState("#000000");
+  const [heading2Color, setHeading2Color] = useState("#000000");
   const [bulletTextColor, setBulletTextColor] = useState("#ffffff");
   const [diagonalAngle, setDiagonalAngle] = useState(135);
   const [diagonalPosition, setDiagonalPosition] = useState(50);
@@ -709,6 +711,8 @@ export default function Home() {
     useState(false);
   const [showHeaderTextColorPicker, setShowHeaderTextColorPicker] =
     useState(false);
+  const [showHeading1ColorPicker, setShowHeading1ColorPicker] = useState(false);
+  const [showHeading2ColorPicker, setShowHeading2ColorPicker] = useState(false);
   const [showBulletTextColorPicker, setShowBulletTextColorPicker] =
     useState(false);
 
@@ -884,13 +888,13 @@ export default function Home() {
             <div className="w-1/2 p-16 flex flex-col justify-center">
               <h1
                 className="text-4xl md:text-5xl font-bold mb-4 leading-tight"
-                style={{ color: headerTextColor }}
+                style={{ color: heading1Color }}
               >
                 {title}
               </h1>
               <h2
                 className="text-xl md:text-2xl font-medium mb-6 leading-relaxed"
-                style={{ color: headerTextColor, opacity: 0.9 }}
+                style={{ color: heading1Color, opacity: 0.9 }}
               >
                 {subtitle}
               </h2>
@@ -966,7 +970,7 @@ export default function Home() {
                 <h1
                   className="text-4xl lg:text-5xl font-bold mb-4 leading-tight"
                   style={{
-                    color: headerTextColor,
+                    color: heading1Color,
                     textShadow: "0 2px 4px rgba(0,0,0,0.5)",
                   }}
                 >
@@ -975,7 +979,7 @@ export default function Home() {
                 <h2
                   className="text-xl lg:text-2xl font-medium mb-6 leading-relaxed"
                   style={{
-                    color: headerTextColor,
+                    color: heading1Color,
                     opacity: 0.9,
                     textShadow: "0 1px 3px rgba(0,0,0,0.4)",
                   }}
@@ -1093,7 +1097,7 @@ export default function Home() {
               <h1
                 className="text-4xl lg:text-5xl font-bold mb-4 leading-tight tracking-tight"
                 style={{
-                  color: headerTextColor,
+                  color: heading1Color,
                   textShadow: "0 2px 6px rgba(0,0,0,0.2)",
                   filter: "contrast(1.1) brightness(1.05)",
                 }}
@@ -1103,7 +1107,7 @@ export default function Home() {
               <h2
                 className="text-xl lg:text-2xl font-medium mb-6 leading-relaxed"
                 style={{
-                  color: headerTextColor,
+                  color: heading1Color,
                   opacity: 0.9,
                   textShadow: "0 1px 3px rgba(0,0,0,0.1)",
                 }}
@@ -1161,101 +1165,130 @@ export default function Home() {
 
       default: // diagonal
         return (
-          <div className="relative h-full p-16 flex">
-            {/* Left Side - Marketing Message and Product Image */}
-            <div className="w-1/2 flex flex-col justify-between pr-4">
-              <div className="mb-8">
-                <h3
-                  className="text-2xl lg:text-3xl font-bold leading-tight"
-                  style={{
-                    color: headerTextColor,
-                    textShadow: "0 2px 4px rgba(0,0,0,0.2)",
-                    filter: "contrast(1.1) brightness(1.05)",
-                  }}
-                >
-                  {price}
-                </h3>
-              </div>
-              <div className="flex justify-start items-center flex-1 -ml-8">
-                <div className="w-[400px] h-[400px] flex items-center justify-center">
-                  {productImage ? (
-                    <Image
-                      src={productImage}
-                      alt="Product"
-                      width={400}
-                      height={400}
-                      className="max-w-full max-h-full object-contain drop-shadow-2xl"
-                      style={{
-                        objectPosition: "center center",
-                        width: "auto",
-                        height: "auto",
-                        maxWidth: "100%",
-                        maxHeight: "100%",
-                      }}
-                    />
-                  ) : (
-                    <div className="w-full h-full bg-gray-200/50 rounded-lg flex items-center justify-center">
-                      <span className="text-gray-500 text-lg text-center">
-                        Upload Product Image
-                      </span>
-                    </div>
-                  )}
+          <div className="relative h-full">
+            {/* 360-degree diagonal background */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: `linear-gradient(${diagonalAngle}deg, ${backgroundColor} 0%, ${backgroundColor} ${diagonalPosition}%, #ffffff ${diagonalPosition}%, #ffffff 100%)`,
+              }}
+            />
+            <div className="relative h-full p-16 flex">
+              {/* Left Side - Marketing Message and Product Image */}
+              <div className="w-1/2 flex flex-col justify-between pr-4">
+                <div className="mb-8">
+                  <h3
+                    className="text-2xl lg:text-3xl font-bold leading-tight"
+                    style={{
+                      color: heading2Color,
+                      textShadow: "0 2px 4px rgba(0,0,0,0.2)",
+                      filter: "contrast(1.1) brightness(1.05)",
+                    }}
+                  >
+                    {price}
+                  </h3>
+                </div>
+                <div className="flex justify-start items-center flex-1 -ml-8">
+                  <div className="w-[400px] h-[400px] flex items-center justify-center">
+                    {productImage ? (
+                      <Image
+                        src={productImage}
+                        alt="Product"
+                        width={400}
+                        height={400}
+                        className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                        style={{
+                          objectPosition: "center center",
+                          width: "auto",
+                          height: "auto",
+                          maxWidth: "100%",
+                          maxHeight: "100%",
+                        }}
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-gray-200/50 rounded-lg flex items-center justify-center">
+                        <span className="text-gray-500 text-lg text-center">
+                          Upload Product Image
+                        </span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               </div>
-            </div>
-            {/* Right Side - Title and Features */}
-            <div className="w-1/2 flex flex-col pl-4">
-              <div className="text-center mb-12">
-                <h1
-                  className="text-4xl lg:text-5xl font-extrabold mb-4 leading-tight tracking-tight"
-                  style={{
-                    color: headerTextColor,
-                    textShadow: "0 2px 4px rgba(0,0,0,0.3)",
-                    filter: "contrast(1.1) brightness(1.05)",
-                  }}
-                >
-                  {title}
-                </h1>
-                <h2
-                  className="text-xl lg:text-2xl font-semibold leading-relaxed"
-                  style={{
-                    color: headerTextColor,
-                    textShadow: "0 1px 3px rgba(0,0,0,0.2)",
-                    opacity: 0.9,
-                  }}
-                >
-                  {subtitle}
-                </h2>
-              </div>
-              <div className="space-y-3 flex-1">
-                {bulletPoints.map((point) => (
-                  <div key={point.id} className="w-full">
-                    <div
-                      className="flex items-center space-x-3 rounded-full px-5 py-3 shadow-lg border backdrop-blur-sm"
-                      style={{
-                        backgroundColor: `${backgroundColor}20`,
-                        borderColor: `${backgroundColor}40`,
-                        minHeight: "56px",
-                      }}
-                    >
+              {/* Right Side - Title and Features */}
+              <div className="w-1/2 flex flex-col pl-4">
+                <div className="text-center mb-12">
+                  <h1
+                    className="text-4xl lg:text-5xl font-extrabold mb-4 leading-tight tracking-tight"
+                    style={{
+                      color: heading1Color,
+                      textShadow: "0 2px 4px rgba(0,0,0,0.3)",
+                      filter: "contrast(1.1) brightness(1.05)",
+                    }}
+                  >
+                    {title}
+                  </h1>
+                  <h2
+                    className="text-xl lg:text-2xl font-semibold leading-relaxed"
+                    style={{
+                      color: heading1Color,
+                      textShadow: "0 1px 3px rgba(0,0,0,0.2)",
+                      opacity: 0.9,
+                    }}
+                  >
+                    {subtitle}
+                  </h2>
+                </div>
+                <div className="space-y-3 flex-1">
+                  {bulletPoints.map((point) => (
+                    <div key={point.id} className="w-full">
                       <div
-                        className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0"
+                        className="flex items-center space-x-3 rounded-full px-5 py-3 shadow-lg border backdrop-blur-sm"
                         style={{
-                          backgroundColor: bulletTextColor,
-                          color: backgroundColor,
+                          backgroundColor: `${backgroundColor}20`,
+                          borderColor: `${backgroundColor}40`,
+                          minHeight: "56px",
                         }}
                       >
-                        ✓
+                        <svg
+                          className="w-6 h-6 flex-shrink-0"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
+                          style={{
+                            color:
+                              backgroundColor === "#ffffff" ||
+                              backgroundColor === "#fff"
+                                ? "#10b981"
+                                : [
+                                    "#ffffff",
+                                    "#f8fafc",
+                                    "#f1f5f9",
+                                    "#e2e8f0",
+                                    "#cbd5e1",
+                                  ].some(
+                                    (light) =>
+                                      backgroundColor.toLowerCase() === light
+                                  )
+                                ? "#10b981"
+                                : "#ffffff",
+                          }}
+                        >
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
+                        <span
+                          className="text-lg font-medium flex-1"
+                          style={{ color: bulletTextColor }}
+                        >
+                          {point.text}
+                        </span>
                       </div>
-                      <span
-                        className="text-lg font-medium flex-1"
-                        style={{ color: bulletTextColor }}
-                      >
-                        {point.text}
-                      </span>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -1813,6 +1846,158 @@ export default function Home() {
                   />
                 </div>
 
+                {/* Heading 1 Color */}
+                <div>
+                  <label className="flex items-center text-sm font-semibold text-gray-900 mb-3">
+                    <svg
+                      className="w-4 h-4 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                    </svg>
+                    Heading 1 Color
+                  </label>
+
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div
+                      className="w-12 h-12 rounded-lg border-2 border-gray-300 shadow-sm cursor-pointer hover:border-gray-400 transition-colors hover:scale-105"
+                      style={{ backgroundColor: heading1Color }}
+                      onClick={() => setShowHeading1ColorPicker(true)}
+                    />
+                    <input
+                      type="text"
+                      value={heading1Color}
+                      onChange={(e) => setHeading1Color(e.target.value)}
+                      className="flex-1 px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm text-gray-900"
+                      placeholder="#000000"
+                    />
+                    <button
+                      onClick={() => setShowHeading1ColorPicker(true)}
+                      className="px-3 py-3 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-600 transition-colors"
+                    >
+                      Pick
+                    </button>
+                  </div>
+
+                  <div className="mb-3">
+                    <p className="text-sm font-semibold text-gray-900 mb-3">
+                      Quick Colors
+                    </p>
+                    <div className="grid grid-cols-5 gap-2">
+                      {[
+                        "#000000",
+                        "#ffffff",
+                        "#374151",
+                        "#6b7280",
+                        "#9ca3af",
+                        "#ef4444",
+                        "#f97316",
+                        "#eab308",
+                        "#22c55e",
+                        "#06b6d4",
+                        "#3b82f6",
+                        "#8b5cf6",
+                        "#ec4899",
+                        "#f43f5e",
+                        "#84cc16",
+                      ].map((color, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setHeading1Color(color)}
+                          className="w-8 h-8 rounded-lg border-2 border-gray-200 hover:border-gray-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          style={{ backgroundColor: color }}
+                          title={color}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <input
+                    id="heading1Color"
+                    type="color"
+                    value={heading1Color}
+                    onChange={(e) => setHeading1Color(e.target.value)}
+                    className="sr-only"
+                  />
+                </div>
+
+                {/* Heading 2 Color */}
+                <div>
+                  <label className="flex items-center text-sm font-semibold text-gray-900 mb-3">
+                    <svg
+                      className="w-4 h-4 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+                    </svg>
+                    Heading 2 Color
+                  </label>
+
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div
+                      className="w-12 h-12 rounded-lg border-2 border-gray-300 shadow-sm cursor-pointer hover:border-gray-400 transition-colors hover:scale-105"
+                      style={{ backgroundColor: heading2Color }}
+                      onClick={() => setShowHeading2ColorPicker(true)}
+                    />
+                    <input
+                      type="text"
+                      value={heading2Color}
+                      onChange={(e) => setHeading2Color(e.target.value)}
+                      className="flex-1 px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm text-gray-900"
+                      placeholder="#000000"
+                    />
+                    <button
+                      onClick={() => setShowHeading2ColorPicker(true)}
+                      className="px-3 py-3 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-600 transition-colors"
+                    >
+                      Pick
+                    </button>
+                  </div>
+
+                  <div className="mb-3">
+                    <p className="text-sm font-semibold text-gray-900 mb-3">
+                      Quick Colors
+                    </p>
+                    <div className="grid grid-cols-5 gap-2">
+                      {[
+                        "#000000",
+                        "#ffffff",
+                        "#374151",
+                        "#6b7280",
+                        "#9ca3af",
+                        "#ef4444",
+                        "#f97316",
+                        "#eab308",
+                        "#22c55e",
+                        "#06b6d4",
+                        "#3b82f6",
+                        "#8b5cf6",
+                        "#ec4899",
+                        "#f43f5e",
+                        "#84cc16",
+                      ].map((color, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setHeading2Color(color)}
+                          className="w-8 h-8 rounded-lg border-2 border-gray-200 hover:border-gray-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          style={{ backgroundColor: color }}
+                          title={color}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <input
+                    id="heading2Color"
+                    type="color"
+                    value={heading2Color}
+                    onChange={(e) => setHeading2Color(e.target.value)}
+                    className="sr-only"
+                  />
+                </div>
+
                 {/* Bullet Text Color */}
                 <div>
                   <label className="flex items-center text-sm font-semibold text-gray-900 mb-3">
@@ -1914,8 +2099,8 @@ export default function Home() {
                         </label>
                         <input
                           type="range"
-                          min="90"
-                          max="180"
+                          min="0"
+                          max="360"
                           value={diagonalAngle}
                           onChange={(e) =>
                             setDiagonalAngle(Number(e.target.value))
@@ -1923,9 +2108,11 @@ export default function Home() {
                           className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
                         />
                         <div className="flex justify-between text-xs text-gray-600 mt-1">
+                          <span>0°</span>
                           <span>90°</span>
-                          <span>135°</span>
                           <span>180°</span>
+                          <span>270°</span>
+                          <span>360°</span>
                         </div>
                       </div>
 
@@ -2061,6 +2248,24 @@ export default function Home() {
         onColorChange={setHeaderTextColor}
         title="Header Text Color"
         storageKey="headerText"
+      />
+
+      <ColorPicker
+        isOpen={showHeading1ColorPicker}
+        onClose={() => setShowHeading1ColorPicker(false)}
+        currentColor={heading1Color}
+        onColorChange={setHeading1Color}
+        title="Heading 1 Color"
+        storageKey="heading1"
+      />
+
+      <ColorPicker
+        isOpen={showHeading2ColorPicker}
+        onClose={() => setShowHeading2ColorPicker(false)}
+        currentColor={heading2Color}
+        onColorChange={setHeading2Color}
+        title="Heading 2 Color"
+        storageKey="heading2"
       />
 
       <ColorPicker
