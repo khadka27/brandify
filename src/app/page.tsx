@@ -971,7 +971,6 @@ export default function Home() {
                   className="text-4xl lg:text-5xl font-bold mb-4 leading-tight"
                   style={{
                     color: heading1Color,
-                    textShadow: "0 2px 4px rgba(0,0,0,0.5)",
                   }}
                 >
                   {title}
@@ -981,7 +980,6 @@ export default function Home() {
                   style={{
                     color: heading1Color,
                     opacity: 0.9,
-                    textShadow: "0 1px 3px rgba(0,0,0,0.4)",
                   }}
                 >
                   {subtitle}
@@ -990,7 +988,6 @@ export default function Home() {
                   className="text-2xl lg:text-3xl font-bold mb-8 leading-tight"
                   style={{
                     color: headerTextColor,
-                    textShadow: "0 2px 4px rgba(0,0,0,0.5)",
                   }}
                 >
                   {price}
@@ -1098,7 +1095,6 @@ export default function Home() {
                 className="text-4xl lg:text-5xl font-bold mb-4 leading-tight tracking-tight"
                 style={{
                   color: heading1Color,
-                  textShadow: "0 2px 6px rgba(0,0,0,0.2)",
                   filter: "contrast(1.1) brightness(1.05)",
                 }}
               >
@@ -1109,7 +1105,6 @@ export default function Home() {
                 style={{
                   color: heading1Color,
                   opacity: 0.9,
-                  textShadow: "0 1px 3px rgba(0,0,0,0.1)",
                 }}
               >
                 {subtitle}
@@ -1118,7 +1113,6 @@ export default function Home() {
                 className="text-2xl lg:text-3xl font-bold mb-8 leading-tight"
                 style={{
                   color: headerTextColor,
-                  textShadow: "0 2px 4px rgba(0,0,0,0.2)",
                   filter: "contrast(1.15) brightness(1.08)",
                 }}
               >
@@ -1181,7 +1175,6 @@ export default function Home() {
                     className="text-2xl lg:text-3xl font-bold leading-tight"
                     style={{
                       color: heading2Color,
-                      textShadow: "0 2px 4px rgba(0,0,0,0.2)",
                       filter: "contrast(1.1) brightness(1.05)",
                     }}
                   >
@@ -1222,7 +1215,6 @@ export default function Home() {
                     className="text-4xl lg:text-5xl font-extrabold mb-4 leading-tight tracking-tight"
                     style={{
                       color: heading1Color,
-                      textShadow: "0 2px 4px rgba(0,0,0,0.3)",
                       filter: "contrast(1.1) brightness(1.05)",
                     }}
                   >
@@ -1232,7 +1224,6 @@ export default function Home() {
                     className="text-xl lg:text-2xl font-semibold leading-relaxed"
                     style={{
                       color: heading1Color,
-                      textShadow: "0 1px 3px rgba(0,0,0,0.2)",
                       opacity: 0.9,
                     }}
                   >
@@ -2122,8 +2113,8 @@ export default function Home() {
                         </label>
                         <input
                           type="range"
-                          min="30"
-                          max="70"
+                          min="0"
+                          max="100"
                           value={diagonalPosition}
                           onChange={(e) =>
                             setDiagonalPosition(Number(e.target.value))
@@ -2131,9 +2122,11 @@ export default function Home() {
                           className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer slider"
                         />
                         <div className="flex justify-between text-xs text-gray-600 mt-1">
-                          <span>30%</span>
+                          <span>0%</span>
+                          <span>25%</span>
                           <span>50%</span>
-                          <span>70%</span>
+                          <span>75%</span>
+                          <span>100%</span>
                         </div>
                       </div>
                     </div>
