@@ -697,6 +697,7 @@ export default function Home() {
   const [heading1Color, setHeading1Color] = useState("#000000");
   const [heading2Color, setHeading2Color] = useState("#000000");
   const [bulletTextColor, setBulletTextColor] = useState("#ffffff");
+  const [tickColor, setTickColor] = useState("#10b981");
   const [diagonalAngle, setDiagonalAngle] = useState(135);
   const [diagonalPosition, setDiagonalPosition] = useState(50);
   const [currentLayout, setCurrentLayout] = useState<
@@ -715,6 +716,7 @@ export default function Home() {
   const [showHeading2ColorPicker, setShowHeading2ColorPicker] = useState(false);
   const [showBulletTextColorPicker, setShowBulletTextColorPicker] =
     useState(false);
+  const [showTickColorPicker, setShowTickColorPicker] = useState(false);
 
   const [bulletPoints, setBulletPoints] = useState<BulletPoint[]>([
     { id: 1, text: "Plug & Play HDMI Setup" },
@@ -915,21 +917,24 @@ export default function Home() {
                         minHeight: "56px",
                       }}
                     >
-                      <div
-                        className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0 transition-all duration-200"
+                      <svg
+                        className="w-6 h-6 flex-shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
                         style={{
-                          backgroundColor: bulletTextColor,
-                          color: backgroundColor,
-                          boxShadow: `0 2px 4px ${bulletTextColor}20`,
+                          color: tickColor,
                         }}
                       >
-                        ✓
-                      </div>
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
                       <span
                         className="text-lg font-medium flex-1"
                         style={{
                           color: bulletTextColor,
-                          textShadow: `0 1px 2px rgba(0,0,0,0.1)`,
                         }}
                       >
                         {point.text}
@@ -1003,15 +1008,20 @@ export default function Home() {
                           minHeight: "56px",
                         }}
                       >
-                        <div
-                          className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0"
+                        <svg
+                          className="w-6 h-6 flex-shrink-0"
+                          fill="currentColor"
+                          viewBox="0 0 20 20"
                           style={{
-                            backgroundColor: bulletTextColor,
-                            color: backgroundColor,
+                            color: tickColor,
                           }}
                         >
-                          ✓
-                        </div>
+                          <path
+                            fillRule="evenodd"
+                            d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                            clipRule="evenodd"
+                          />
+                        </svg>
                         <span
                           className="text-lg font-medium flex-1"
                           style={{
@@ -1129,16 +1139,20 @@ export default function Home() {
                         minHeight: "56px",
                       }}
                     >
-                      <div
-                        className="flex items-center justify-center w-6 h-6 rounded-full font-bold text-sm flex-shrink-0 transition-all duration-200"
+                      <svg
+                        className="w-6 h-6 flex-shrink-0"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
                         style={{
-                          backgroundColor: bulletTextColor,
-                          color: backgroundColor,
-                          boxShadow: `0 2px 4px ${bulletTextColor}25`,
+                          color: tickColor,
                         }}
                       >
-                        ✓
-                      </div>
+                        <path
+                          fillRule="evenodd"
+                          d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
                       <span
                         className="text-lg font-medium flex-1"
                         style={{
@@ -1246,22 +1260,7 @@ export default function Home() {
                           fill="currentColor"
                           viewBox="0 0 20 20"
                           style={{
-                            color:
-                              backgroundColor === "#ffffff" ||
-                              backgroundColor === "#fff"
-                                ? "#10b981"
-                                : [
-                                    "#ffffff",
-                                    "#f8fafc",
-                                    "#f1f5f9",
-                                    "#e2e8f0",
-                                    "#cbd5e1",
-                                  ].some(
-                                    (light) =>
-                                      backgroundColor.toLowerCase() === light
-                                  )
-                                ? "#10b981"
-                                : "#ffffff",
+                            color: tickColor,
                           }}
                         >
                           <path
@@ -2069,6 +2068,86 @@ export default function Home() {
                   />
                 </div>
 
+                {/* Tick Color */}
+                <div>
+                  <label className="flex items-center text-sm font-semibold text-gray-900 mb-3">
+                    <svg
+                      className="w-4 h-4 mr-2"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                    Tick Mark Color
+                  </label>
+
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div
+                      className="w-12 h-12 rounded-lg border-2 border-gray-300 shadow-sm cursor-pointer hover:border-gray-400 transition-colors hover:scale-105"
+                      style={{ backgroundColor: tickColor }}
+                      onClick={() => setShowTickColorPicker(true)}
+                    />
+                    <input
+                      type="text"
+                      value={tickColor}
+                      onChange={(e) => setTickColor(e.target.value)}
+                      className="flex-1 px-3 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent font-mono text-sm text-gray-900"
+                      placeholder="#22c55e"
+                    />
+                    <button
+                      onClick={() => setShowTickColorPicker(true)}
+                      className="px-3 py-3 bg-blue-500 text-white rounded-lg text-sm hover:bg-blue-600 transition-colors"
+                    >
+                      Pick
+                    </button>
+                  </div>
+
+                  <div className="mb-3">
+                    <p className="text-sm font-semibold text-gray-900 mb-3">
+                      Quick Colors
+                    </p>
+                    <div className="grid grid-cols-5 gap-2">
+                      {[
+                        "#22c55e",
+                        "#16a34a",
+                        "#059669",
+                        "#047857",
+                        "#064e3b",
+                        "#ef4444",
+                        "#dc2626",
+                        "#b91c1c",
+                        "#991b1b",
+                        "#7f1d1d",
+                        "#3b82f6",
+                        "#2563eb",
+                        "#1d4ed8",
+                        "#1e40af",
+                        "#1e3a8a",
+                      ].map((color, index) => (
+                        <button
+                          key={index}
+                          onClick={() => setTickColor(color)}
+                          className="w-8 h-8 rounded-lg border-2 border-gray-200 hover:border-gray-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                          style={{ backgroundColor: color }}
+                          title={color}
+                        />
+                      ))}
+                    </div>
+                  </div>
+
+                  <input
+                    id="tickColor"
+                    type="color"
+                    value={tickColor}
+                    onChange={(e) => setTickColor(e.target.value)}
+                    className="sr-only"
+                  />
+                </div>
+
                 {/* Diagonal Customization - only show for diagonal layout */}
                 {currentLayout === "diagonal" && (
                   <div className="mb-8">
@@ -2268,6 +2347,15 @@ export default function Home() {
         onColorChange={setBulletTextColor}
         title="Bullet Points Color"
         storageKey="bulletText"
+      />
+
+      <ColorPicker
+        isOpen={showTickColorPicker}
+        onClose={() => setShowTickColorPicker(false)}
+        currentColor={tickColor}
+        onColorChange={setTickColor}
+        title="Tick Mark Color"
+        storageKey="tickColor"
       />
     </div>
   );
